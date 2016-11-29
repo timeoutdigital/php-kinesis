@@ -12,6 +12,6 @@ chmod +x php-kinesis.phar
 
 then to run it
 
-`./php-kinesis.phar region stream id TRIM_HORIZON` to see all stuff in your stream
-`./php-kinesis.phar region stream id LATEST` to begin reading the stream from now
+ - `./php-kinesis.phar region stream id TRIM_HORIZON` to see all stuff in your stream
+ - `./php-kinesis.phar region stream id LATEST` to begin reading the stream from now
 
