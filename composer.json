@@ -1,0 +1,16 @@
+{
+    "name": "tomv/php-kinesis",
+    "type": "project",
+    "bin": ["index.php"],
+    "require": {
+        "aws/aws-sdk-php": "^3.19",
+        "wikimedia/avro": "^1.7",
+        "clue/phar-composer": "^1.0"
+    },
+    "authors": [
+        {
+            "name": "Tom Verran",
+            "email": "tomverran@timeout.com"
+        }
+    ]
+}
