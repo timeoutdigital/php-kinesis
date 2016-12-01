@@ -10,7 +10,7 @@ if (count($argv) < 3) {
   die("Usage: php-kinesis <aws region> <stream id> [event=LATEST]\n");
 }
 
-$event = $argv[3] ?? 'LATEST';
+$event = isset($argv[3]) ? $argv[3] : 'LATEST';
 list($region, $stream) = array_slice($argv, 1);
 
 $client = KinesisClient::factory([
