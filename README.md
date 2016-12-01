@@ -4,16 +4,15 @@ Given a kinesis stream of data in the [avro file format](https://avro.apache.org
 
 To build the .phar from source, assuming composer is on your path
 
-```bash
-composer install
-```
 
-Edit index.php and set `TRACE_FILES` to 1 before running it for 5 minutes.
-This will result in `files.json` being written, a list of all classes the script needs.
+ - `composer install`
+ - Edit index.php and set `TRACE_FILES` to 1 
+ - Run the script against a stream with data for 5 minutes.
+ - Verify that you now have a JSON file named files.json containing all the PHP files the script needed
+ - Edit index.php and set `TRACE_FILES` back to 0 
+ - Run `php build.php` to create the phar.
 
-When you're finished set `TRACE_FILES` back to 0 and run `php build.php` to create the phar.
-
-then to run it
+then to run the phar
 
  - `php php-kinesis.phar region stream id TRIM_HORIZON` to see all stuff in your stream
  - `php php-kinesis.phar region stream id LATEST` to begin reading the stream from now
