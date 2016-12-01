@@ -2,6 +2,7 @@
 
 //http://docs.aws.amazon.com/aws-sdk-php/v3/api/
 
+define("TRACE_FILES", 0);
 require("vendor/autoload.php");
 use Aws\Kinesis\KinesisClient;
 
@@ -49,5 +50,9 @@ while(true) {
 
   foreach($avro as $a) {
       echo json_encode($a);
+  }
+
+  if (TRACE_FILES) {
+    file_put_contents("files.json", json_encode(get_included_files()));
   }
 }

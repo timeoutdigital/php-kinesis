@@ -4,8 +4,7 @@
     "bin": ["index.php"],
     "require": {
         "aws/aws-sdk-php": "^3.19",
-        "wikimedia/avro": "^1.7",
-        "clue/phar-composer": "^1.0"
+        "wikimedia/avro": "^1.7"
     },
     "authors": [
         {

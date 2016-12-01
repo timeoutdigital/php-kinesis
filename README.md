@@ -6,12 +6,14 @@ To build the .phar from source, assuming composer is on your path
 
 ```bash
 composer install
-vendor/bin/phar-composer build .
-chmod +x php-kinesis.phar
 ```
+
+Edit index.php and set `TRACE_FILES` to 1 before running it for 5 minutes.
+This will result in `files.json` being written, a list of all classes the script needs.
+
+When you're finished set `TRACE_FILES` back to 0 and run `php build.php` to create the phar.
 
 then to run it
 
- - `./php-kinesis.phar region stream id TRIM_HORIZON` to see all stuff in your stream
- - `./php-kinesis.phar region stream id LATEST` to begin reading the stream from now
-
+ - `php php-kinesis.phar region stream id TRIM_HORIZON` to see all stuff in your stream
+ - `php php-kinesis.phar region stream id LATEST` to begin reading the stream from now
