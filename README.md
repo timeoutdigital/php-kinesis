@@ -4,10 +4,11 @@ Given a kinesis stream of data in the [avro file format](https://avro.apache.org
 
 ## Running the project
 
- - If you don't have PHP installed `brew install php71`
+ - If you don't have PHP installed 'brew update', 'brew install homebrew/php/php70'
  - Download [the latest .phar archive](https://github.com/timeoutdigital/php-kinesis/releases)
- - `php php-kinesis.phar region stream id TRIM_HORIZON` to see all stuff in your stream
- - `php php-kinesis.phar region stream id LATEST` to begin reading the stream from now
+ - `php php-kinesis.phar [region] [stream_id] TRIM_HORIZON` to see all stuff in your stream
+ - `php php-kinesis.phar [region] [stream_id] LATEST` to begin reading the stream from now
+ - e.g. 'php php-kinesis.phar eu-west-1 com.timeout.feeds.VenueAction.test TRIM_HORIZON'
 
 
 ## Building from source
