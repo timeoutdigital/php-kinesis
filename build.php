@@ -9,4 +9,4 @@ $phar = new Phar('php-kinesis.phar', 0, 'php-kinesis.phar');
 $files = new ArrayIterator(json_decode(file_get_contents("files.json")));
 
 $phar->buildFromIterator($files,'.');
-$phar->setStub($phar->createDefaultStub('index.php', 'index.php'));
+$phar->setStub($phar->createDefaultStub('index.php'));

@@ -10,6 +10,8 @@ if (count($argv) < 3) {
   die("Usage: php-kinesis <aws region> <stream id> [event=LATEST]\n");
 }
 
+
+$rawOutput = in_array('--base64', $argv);
 $event = isset($argv[3]) ? $argv[3] : 'LATEST';
 list($region, $stream) = array_slice($argv, 1);
 
@@ -42,14 +44,20 @@ while(true) {
     $shardIterator = $result['NextShardIterator'];
   }
 
-  $avro = array_map(function($r) {
+  $avro = array_map(function($r) use($rawOutput) {
+
+    if ($rawOutput && $r['Data']) {
+      return base64_encode($r['Data']);
+    }
+
     $io = new AvroStringIO($r['Data']);
     $reader = new AvroDataIOReader($io, new AvroIODatumReader());
-    return $reader->data()[0];
+    return json_encode($reader->data()[0]);
+
   }, $result['Records']);
 
   foreach($avro as $a) {
-      echo json_encode($a);
+      echo $a;
   }
 
   if (TRACE_FILES) {
