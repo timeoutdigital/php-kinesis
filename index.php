@@ -16,7 +16,7 @@ $event = isset($argv[3]) ? $argv[3] : 'LATEST';
 list($region, $stream) = array_slice($argv, 1);
 
 $client = KinesisClient::factory([
-    'profile' => 'default',
+    'profile' => getenv('AWS_PROFILE') ?: 'default',
     'region'  => $region,
     'version' => '2013-12-02'
 ]);
